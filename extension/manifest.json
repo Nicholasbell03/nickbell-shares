@@ -4,6 +4,7 @@
   "version": "1.0.0",
   "description": "Quickly share URLs with commentary to nickbell.dev",
   "permissions": ["activeTab", "storage"],
+  "host_permissions": ["https://api.nickbell.dev/*"],
   "action": {
     "default_popup": "popup/popup.html",
     "default_icon": {
