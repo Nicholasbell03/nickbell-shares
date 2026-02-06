@@ -1,10 +1,9 @@
-const CACHE_NAME = 'nb-shares-v1';
+const CACHE_NAME = 'nb-shares-v2';
 const APP_SHELL = [
   '/',
   '/index.html',
   '/app.css',
   '/app.js',
-  '/manifest.json',
   '/icons/icon-192.png',
   '/icons/icon-512.png',
 ];
