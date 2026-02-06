@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="options.css">
+  <title>NickBell Shares - Settings</title>
+</head>
+<body>
+  <div class="container">
+    <h1>NickBell Shares Settings</h1>
+
+    <div class="field">
+      <label for="api-url">API URL</label>
+      <input type="url" id="api-url" placeholder="https://api.nickbell.dev">
+    </div>
+
+    <div class="field">
+      <label for="api-token">API Token</label>
+      <div class="token-row">
+        <input type="password" id="api-token" placeholder="Paste your Sanctum token">
+        <button id="toggle-token" class="btn btn-icon" title="Show/hide token">👁</button>
+      </div>
+    </div>
+
+    <div class="actions">
+      <button id="save-btn" class="btn btn-primary">Save</button>
+      <button id="test-btn" class="btn btn-secondary">Test Connection</button>
+    </div>
+
+    <div id="status" class="status" hidden></div>
+  </div>
+
+  <script src="options.js"></script>
+</body>
+</html>

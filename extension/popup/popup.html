@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="popup.css">
+  <title>NickBell Shares</title>
+</head>
+<body>
+  <!-- Config needed state -->
+  <div id="config-needed" class="container" hidden>
+    <div class="header">
+      <h1>NB Shares</h1>
+    </div>
+    <div class="message">
+      <p>Configure your API token to start sharing.</p>
+      <button id="open-options" class="btn btn-primary">Open Settings</button>
+    </div>
+  </div>
+
+  <!-- Main form state -->
+  <div id="main-form" class="container" hidden>
+    <div class="header">
+      <h1>NB Shares</h1>
+    </div>
+
+    <div class="field">
+      <label for="url">URL</label>
+      <div class="url-row">
+        <span id="source-icon" class="source-icon" title="Webpage">🌐</span>
+        <input type="text" id="url" readonly>
+      </div>
+    </div>
+
+    <div class="field">
+      <label for="commentary">Commentary</label>
+      <textarea id="commentary" rows="3" placeholder="Add your thoughts..."></textarea>
+    </div>
+
+    <button id="submit-btn" class="btn btn-primary btn-full">Share</button>
+
+    <div id="error-msg" class="error" hidden></div>
+  </div>
+
+  <!-- Loading state -->
+  <div id="loading" class="container" hidden>
+    <div class="header">
+      <h1>NB Shares</h1>
+    </div>
+    <div class="message">
+      <div class="spinner"></div>
+      <p>Sharing...</p>
+    </div>
+  </div>
+
+  <!-- Success state -->
+  <div id="success" class="container" hidden>
+    <div class="header">
+      <h1>NB Shares</h1>
+    </div>
+    <div class="message">
+      <p class="success-text">Shared!</p>
+      <a id="share-link" href="#" target="_blank" class="btn btn-secondary">View on nickbell.dev</a>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

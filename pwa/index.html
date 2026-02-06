@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#3b82f6">
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <link rel="stylesheet" href="app.css">
+  <title>NB Shares</title>
+</head>
+<body>
+  <!-- Setup screen -->
+  <div id="setup-screen" class="screen" hidden>
+    <div class="screen-content">
+      <h1>NB Shares</h1>
+      <p class="subtitle">Configure your API token to start sharing.</p>
+
+      <div class="field">
+        <label for="setup-api-url">API URL</label>
+        <input type="url" id="setup-api-url" value="https://api.nickbell.dev" placeholder="https://api.nickbell.dev">
+      </div>
+
+      <div class="field">
+        <label for="setup-api-token">API Token</label>
+        <div class="token-row">
+          <input type="password" id="setup-api-token" placeholder="Paste your Sanctum token">
+          <button id="setup-toggle-token" class="btn btn-icon" type="button">👁</button>
+        </div>
+      </div>
+
+      <button id="setup-save-btn" class="btn btn-primary btn-full">Save & Continue</button>
+      <div id="setup-error" class="error" hidden></div>
+    </div>
+  </div>
+
+  <!-- Share form screen -->
+  <div id="share-screen" class="screen" hidden>
+    <div class="screen-header">
+      <h1>NB Shares</h1>
+      <button id="settings-btn" class="btn btn-icon" title="Settings">⚙️</button>
+    </div>
+
+    <div class="screen-content">
+      <div class="field">
+        <label for="share-url">URL</label>
+        <div class="url-row">
+          <span id="source-icon" class="source-icon">🌐</span>
+          <input type="url" id="share-url" placeholder="https://example.com">
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="share-commentary">Commentary</label>
+        <textarea id="share-commentary" rows="4" placeholder="Add your thoughts..."></textarea>
+      </div>
+
+      <button id="share-submit-btn" class="btn btn-primary btn-full btn-large">Share</button>
+      <div id="share-error" class="error" hidden></div>
+    </div>
+  </div>
+
+  <!-- Loading screen -->
+  <div id="loading-screen" class="screen" hidden>
+    <div class="screen-content center">
+      <div class="spinner"></div>
+      <p>Sharing...</p>
+    </div>
+  </div>
+
+  <!-- Success screen -->
+  <div id="success-screen" class="screen" hidden>
+    <div class="screen-content center">
+      <p class="success-text">Shared!</p>
+      <a id="success-link" href="#" class="btn btn-secondary">View on nickbell.dev</a>
+      <button id="share-another-btn" class="btn btn-ghost">Share another</button>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
