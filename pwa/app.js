@@ -22,7 +22,7 @@ function detectSourceType(url) {
     const host = new URL(url).hostname.replace(/^www\./, '').toLowerCase();
     if (['youtube.com', 'youtu.be', 'm.youtube.com'].includes(host)) return 'youtube';
     if (['x.com', 'twitter.com', 'mobile.twitter.com'].includes(host)) return 'x_post';
-    if (['linkedin.com'].includes(host)) return 'linkedin';
+    if (['linkedin.com', 'm.linkedin.com', 'lnkd.in'].includes(host)) return 'linkedin';
   } catch {
     // invalid URL
   }
