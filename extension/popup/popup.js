@@ -22,6 +22,7 @@ function detectSourceType(url) {
     const host = new URL(url).hostname.replace(/^www\./, '').toLowerCase();
     if (['youtube.com', 'youtu.be', 'm.youtube.com'].includes(host)) return 'youtube';
     if (['x.com', 'twitter.com', 'mobile.twitter.com'].includes(host)) return 'x_post';
+    if (['linkedin.com', 'm.linkedin.com', 'lnkd.in'].includes(host)) return 'linkedin';
   } catch {
     // invalid URL
   }
@@ -32,6 +33,7 @@ function updateSourceIcon(type) {
   const config = {
     youtube: { text: '▶', className: 'youtube', title: 'YouTube' },
     x_post: { text: '𝕏', className: 'x-post', title: 'X / Twitter' },
+    linkedin: { text: 'in', className: 'linkedin', title: 'LinkedIn' },
     webpage: { text: '🌐', className: 'webpage', title: 'Webpage' },
   };
   const c = config[type] || config.webpage;
