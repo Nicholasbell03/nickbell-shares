@@ -270,7 +270,7 @@ function initShareScreen() {
   shareAnotherBtn.addEventListener('click', () => {
     urlInput.value = '';
     commentaryInput.value = '';
-    postToXCheckbox.checked = true;
+    postToXCheckbox.checked = postToXCheckbox.defaultChecked;
     refreshIcon();
     showScreen(screens.share);
     urlInput.focus();
