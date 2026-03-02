@@ -1,4 +1,4 @@
-const CACHE_NAME = 'nb-shares-v2';
+const CACHE_NAME = 'nb-shares-v3';
 const APP_SHELL = [
   '/',
   '/index.html',

@@ -99,7 +99,7 @@ function hasSettings() {
 }
 
 // --- API ---
-async function submitShare(url, commentary) {
+async function submitShare(url, commentary, postToX) {
   const { apiUrl, apiToken } = getSettings();
 
   const response = await fetch(`${apiUrl}/api/v1/shares`, {
@@ -112,6 +112,7 @@ async function submitShare(url, commentary) {
     body: JSON.stringify({
       url,
       commentary: commentary || undefined,
+      post_to_x: postToX,
     }),
   });
 
@@ -195,6 +196,7 @@ function initShareScreen() {
   const urlInput = document.getElementById('share-url');
   const sourceIcon = document.getElementById('source-icon');
   const commentaryInput = document.getElementById('share-commentary');
+  const postToXCheckbox = document.getElementById('post-to-x');
   const submitBtn = document.getElementById('share-submit-btn');
   const errorEl = document.getElementById('share-error');
   const settingsBtn = document.getElementById('settings-btn');
@@ -253,7 +255,7 @@ function initShareScreen() {
     showScreen(screens.loading);
 
     try {
-      const data = await submitShare(url, commentary);
+      const data = await submitShare(url, commentary, postToXCheckbox.checked);
       const slug = data?.data?.slug;
       successLink.href = slug
         ? `https://nickbell.dev/shares/${slug}`
@@ -270,6 +272,7 @@ function initShareScreen() {
   shareAnotherBtn.addEventListener('click', () => {
     urlInput.value = '';
     commentaryInput.value = '';
+    postToXCheckbox.checked = postToXCheckbox.defaultChecked;
     refreshIcon();
     showScreen(screens.share);
     urlInput.focus();

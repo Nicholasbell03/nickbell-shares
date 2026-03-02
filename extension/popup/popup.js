@@ -8,6 +8,7 @@ const STATES = {
 const urlInput = document.getElementById('url');
 const sourceIcon = document.getElementById('source-icon');
 const commentaryInput = document.getElementById('commentary');
+const postToXCheckbox = document.getElementById('post-to-x');
 const submitBtn = document.getElementById('submit-btn');
 const errorMsg = document.getElementById('error-msg');
 const shareLink = document.getElementById('share-link');
@@ -53,7 +54,7 @@ async function loadSettings() {
   });
 }
 
-async function submitShare(apiUrl, apiToken, url, commentary) {
+async function submitShare(apiUrl, apiToken, url, commentary, postToX) {
   const response = await fetch(`${apiUrl}/api/v1/shares`, {
     method: 'POST',
     headers: {
@@ -64,6 +65,7 @@ async function submitShare(apiUrl, apiToken, url, commentary) {
     body: JSON.stringify({
       url,
       commentary: commentary || undefined,
+      post_to_x: postToX,
     }),
   });
 
@@ -112,7 +114,8 @@ async function init() {
         settings.apiUrl,
         settings.apiToken,
         currentUrl,
-        commentaryInput.value.trim()
+        commentaryInput.value.trim(),
+        postToXCheckbox.checked
       );
 
       const slug = data?.data?.slug;
