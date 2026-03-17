@@ -283,6 +283,7 @@ function initShareScreen() {
     urlInput.value = '';
     commentaryInput.value = '';
     postToXCheckbox.checked = postToXCheckbox.defaultChecked;
+    document.getElementById('success-warning').hidden = true;
     refreshIcon();
     showScreen(screens.share);
     urlInput.focus();
