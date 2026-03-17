@@ -192,3 +192,12 @@ textarea::placeholder {
 @keyframes spin {
   to { transform: rotate(360deg); }
 }
+
+.warning {
+  color: #92400e;
+  background: #fef3c7;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  margin-top: 8px;
+}

@@ -124,6 +124,15 @@ async function init() {
       } else {
         shareLink.href = 'https://nickbell.dev/shares';
       }
+      const warnings = data?.meta?.warnings;
+      const warningEl = document.getElementById('success-warning');
+      if (warnings?.length) {
+        warningEl.textContent = warnings.join(' ');
+        warningEl.hidden = false;
+      } else {
+        warningEl.hidden = true;
+      }
+
       showState(STATES.success);
     } catch (err) {
       showState(STATES.mainForm);
