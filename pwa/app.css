@@ -283,6 +283,15 @@ textarea::placeholder {
   to { transform: rotate(360deg); }
 }
 
+.warning {
+  color: #92400e;
+  background: #fef3c7;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  margin-top: 8px;
+}
+
 /* Safe area for notched devices */
 @supports (padding: env(safe-area-inset-top)) {
   .screen-header {

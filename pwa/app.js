@@ -260,6 +260,16 @@ function initShareScreen() {
       successLink.href = slug
         ? `https://nickbell.dev/shares/${slug}`
         : 'https://nickbell.dev/shares';
+
+      const warnings = data?.meta?.warnings;
+      const warningEl = document.getElementById('success-warning');
+      if (warnings?.length) {
+        warningEl.textContent = warnings.join(' ');
+        warningEl.hidden = false;
+      } else {
+        warningEl.hidden = true;
+      }
+
       showScreen(screens.success);
     } catch (err) {
       showScreen(screens.share);
