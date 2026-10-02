@@ -59,6 +59,7 @@ nickbell-shares/
     ├── sw.js               # Service worker for offline caching
     ├── app.js              # App logic
     ├── app.css             # Styles
+    ├── _headers            # Cloudflare Pages security headers (CSP etc.)
     └── icons/
 ```
 
