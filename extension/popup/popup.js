@@ -48,12 +48,6 @@ function showError(message) {
   errorMsg.hidden = false;
 }
 
-async function loadSettings() {
-  return new Promise(resolve => {
-    chrome.storage.sync.get(['apiUrl', 'apiToken'], resolve);
-  });
-}
-
 async function submitShare(apiUrl, apiToken, url, commentary, postToX) {
   const response = await fetch(`${apiUrl}/api/v1/shares`, {
     method: 'POST',

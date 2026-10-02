@@ -6,7 +6,7 @@ Both clients authenticate via Sanctum bearer tokens and call `POST /api/v1/share
 
 ## Chrome Extension
 
-Click the extension icon on any page to share it. Works independently per Chrome profile (work + personal get separate token storage via `chrome.storage.sync`).
+Click the extension icon on any page to share it. The API token is stored in `chrome.storage.local`, so it stays on the current Chrome profile and is never synced to other profiles or devices (the non-secret API URL is kept in `chrome.storage.sync`). Tokens saved by older versions in sync storage are migrated to local storage automatically on first use.
 
 - Manifest V3 with `activeTab` + `storage` permissions
 - Auto-detects current tab URL and source type
@@ -50,6 +50,7 @@ nickbell-shares/
 │   ├── manifest.json       # Manifest V3 config
 │   ├── popup/              # Extension popup UI
 │   ├── options/            # Settings page
+│   ├── lib/settings.js     # Settings storage (token in local, API URL in sync)
 │   ├── background.js       # Service worker (minimal)
 │   └── icons/
 └── pwa/
