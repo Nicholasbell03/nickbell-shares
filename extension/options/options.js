@@ -12,7 +12,7 @@ function showStatus(message, type) {
 }
 
 // Load saved settings
-chrome.storage.sync.get(['apiUrl', 'apiToken'], (settings) => {
+loadSettings().then((settings) => {
   apiUrlInput.value = settings.apiUrl || 'https://api.nickbell.dev';
   apiTokenInput.value = settings.apiToken || '';
 });
@@ -39,9 +39,9 @@ saveBtn.addEventListener('click', () => {
     return;
   }
 
-  chrome.storage.sync.set({ apiUrl, apiToken }, () => {
-    showStatus('Settings saved.', 'success');
-  });
+  saveSettings(apiUrl, apiToken)
+    .then(() => showStatus('Settings saved.', 'success'))
+    .catch((err) => showStatus(`Failed to save settings: ${err.message}`, 'error'));
 });
 
 // Test connection
